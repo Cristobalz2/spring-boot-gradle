@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.3.3.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
+	id "org.sonarqube" version "3.3"
 }
 
 group = 'com.example'
@@ -17,6 +18,14 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "Cristobalz2_spring-boot-gradle"
+    property "sonar.organization", "cristobalz2"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
 
 test {
